@@ -35,7 +35,7 @@ const Conversation = () => {
         }
         const fullUserInput = `I'm ${selectedType}: ${userInput}`;
         try {
-            const response = await axios.post('https://f00d.me/mindguesserapi/continue-conversation', {
+            const response = await axios.post('https://f00d.me/continue-conversation', {
                 conversationId,
                 userInput: fullUserInput,
             });
