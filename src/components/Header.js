@@ -29,13 +29,15 @@ function Header() {
 
   return (
     <>
-      <AppBar position="static" sx={{  backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
+      <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ fontSize: '2.0em', flexGrow: 1 }}>
-          <FontAwesomeIcon icon={faBrain} /> Mind Guesser
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <FontAwesomeIcon icon={faBrain} /> Mind Guesser
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
