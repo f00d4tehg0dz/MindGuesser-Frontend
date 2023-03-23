@@ -26,6 +26,22 @@ const Conversation = () => {
     const [isFirstSubmission, setIsFirstSubmission] = useState(true);
     const [latestAiResponse, setLatestAiResponse] = useState('');
 
+    const handleTypeSelection = async (type) => {
+        setSelectedType(type);
+        if (isFirstSubmission) {
+          try {
+            const response = await axios.post('https://f00d.me/continue-conversation', {
+              conversationId,
+              userInput: `I'm ${type}:`,
+            });
+            setLatestAiResponse(response.data.message);
+            setIsFirstSubmission(false);
+          } catch (error) {
+            console.error(error);
+            alert('An error occurred while processing your request');
+          }
+        }
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -55,7 +71,7 @@ const Conversation = () => {
                 {/* ... Select what you are? stack ... */}
                 {!selectedType && (
                     <>
-                        <Typography variant="p" textAlign="center">
+                        <Typography variant="p" textAlign="center" sx={{ fontSize: '2.0em' }}>
                         <Typewriter
                             onInit={(typewriter) => {
                                 typewriter.typeString(`I'm a ...`)
@@ -70,13 +86,13 @@ const Conversation = () => {
                         </Typography>
 
                         <Stack direction="row" justifyContent="center" spacing={2}>
-                        <Button variant={selectedType === 'a character from' ? 'contained' : 'outlined'} color="secondary" onClick={() => setSelectedType('a character')}>
+                        <Button variant={selectedType === 'a character from' ? 'contained' : 'outlined'} color="secondary" onClick={() => handleTypeSelection('a character')}>
                             Character
                         </Button>
-                        <Button variant={selectedType === 'an object like' ? 'contained' : 'outlined'} color="secondary" onClick={() => setSelectedType('an object')}>
+                        <Button variant={selectedType === 'an object like' ? 'contained' : 'outlined'} color="secondary" onClick={() => handleTypeSelection('an object')}>
                             Object
                         </Button>
-                        <Button variant={selectedType === 'an animal like' ? 'contained' : 'outlined'} color="secondary" onClick={() => setSelectedType('an animal')}>
+                        <Button variant={selectedType === 'an animal like' ? 'contained' : 'outlined'} color="secondary" onClick={() => handleTypeSelection('an animal')}>
                             Animal
                         </Button>
 
