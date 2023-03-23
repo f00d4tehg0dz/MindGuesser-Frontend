@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Button, CssBaseline, TextField, Stack } from '@mui/material';
+import { Button, CssBaseline, CircularProgress, TextField, Stack } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/system';
 import Typewriter from 'typewriter-effect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,6 +25,19 @@ const Conversation = () => {
     const [selectedType, setSelectedType] = useState('');
     const [isFirstSubmission, setIsFirstSubmission] = useState(true);
     const [latestAiResponse, setLatestAiResponse] = useState('');
+    const [isSendButtonDisabled, setIsSendButtonDisabled] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        // Enable or disable the Send button based on the userInput value
+        setIsSendButtonDisabled(userInput.trim() === '');
+      }, [userInput]);
+
+      const handleKeyPress = (event) => {
+        if (event.key === 'Enter' && !isSendButtonDisabled) {
+          handleSubmit(event);
+        }
+      };
 
     const handleTypeSelection = async (type) => {
         setSelectedType(type);
@@ -50,6 +63,7 @@ const Conversation = () => {
             return;
         }
         const fullUserInput = `I'm ${selectedType}: ${userInput}`;
+        setIsLoading(true);
         try {
             const response = await axios.post('https://f00d.me/continue-conversation', {
                 conversationId,
@@ -63,6 +77,7 @@ const Conversation = () => {
             console.error(error);
             alert('An error occurred while processing your request');
         }
+        setIsLoading(false);
     };
 
     return (
@@ -127,10 +142,15 @@ const Conversation = () => {
                                     placeholder={`I'm ${selectedType}...`}
                                     value={userInput}
                                     onChange={(e) => setUserInput(e.target.value)}
+                                    onKeyPress={handleKeyPress} // Add the key press listener
                                     className="flex-grow border-2 border-gray-300 p-2 rounded-md"
-                                />
-                                <button type="submit" className="bg-blue-600 text-white p-2 rounded-md">
-                                    Send
+                                    />
+                                 <button
+                                    type="submit"
+                                    className="bg-blue-600 text-white p-2 rounded-md"
+                                    disabled={isSendButtonDisabled} // Disable the button based on isSendButtonDisabled
+                                    >
+                                    {isLoading ? <CircularProgress size={20} /> : 'Send'}
                                 </button>
                             </Stack>
 
@@ -155,8 +175,7 @@ const Conversation = () => {
                 </Stack> */}
             </Stack>
         </Container>
-    );
-
+  );
 };
 
 export default Conversation;
