@@ -39,6 +39,7 @@ const Conversation = () => {
         }
       };
 
+
     const handleTypeSelection = async (type) => {
         setSelectedType(type);
         if (isFirstSubmission) {
