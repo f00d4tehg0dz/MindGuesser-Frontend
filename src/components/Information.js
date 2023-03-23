@@ -15,24 +15,19 @@ const Information = () => {
     return (
         <Container maxWidth="sm">
             <Stack spacing={4} sx={{ marginTop: 25 }}>
-            <Typography variant="body1" color="info"
-                        >
-                            <Typewriter
-                            onInit={(typewriter) => {
-                                typewriter.typeString(`Follow me on twitter`)
+                <Typography variant="body1" color="info"
+                >
+                    <Typewriter
+                        onInit={(typewriter) => {
+                            typewriter.typeString(`Follow me on twitter`)
+                            .typeString('<a href="https://twitter.com/_ok_adrian" style="text-decoration: underline;">  _ok_adrian</a>')
                                 .callFunction(() => {
                                     console.log('String typed out!');
                                 })
-                                .pauseFor(2500)
-                                .deleteAll()
-                                .callFunction(() => {
-                                    console.log('All strings were deleted');
-                                })
                                 .start();
-                            }}
-                            />
-                            <a href="https://twitter.com/_ok_adrian">@_ok_adrian</a>
-                        </Typography>
+                        }}
+                    />
+                </Typography>
             </Stack>
         </Container>
     );
