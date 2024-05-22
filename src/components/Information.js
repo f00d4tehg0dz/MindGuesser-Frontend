@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Button, CssBaseline, TextField, Stack } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/system';
+import { Stack } from '@mui/material';
 import Typewriter from 'typewriter-effect';
-const theme = createTheme({
-    palette: {
-        mode: 'dark',
-    },
-});
 
 const Information = () => {
 
