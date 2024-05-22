@@ -44,7 +44,7 @@ const Conversation = () => {
         setSelectedType(type);
         if (isFirstSubmission) {
           try {
-            const response = await axios.post('https://mind-guesser-adrianchrysanth.replit.app', {
+            const response = await axios.post('https://mind-guesser-adrianchrysanth.replit.app/continue-conversation', {
               conversationId,
               userInput: `I'm ${type}:`,
             });
