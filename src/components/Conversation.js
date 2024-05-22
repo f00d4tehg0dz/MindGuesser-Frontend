@@ -66,7 +66,7 @@ const Conversation = () => {
         const fullUserInput = `I'm ${selectedType}: ${userInput}`;
         setIsLoading(true);
         try {
-            const response = await axios.post('https://f00d.me/continue-conversation', {
+            const response = await axios.post('https://mind-guesser-adrianchrysanth.replit.app/continue-conversation', {
                 conversationId,
                 userInput: fullUserInput,
             });
