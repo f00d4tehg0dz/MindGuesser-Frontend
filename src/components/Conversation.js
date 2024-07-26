@@ -201,7 +201,7 @@ const Conversation = () => {
                                             <div>Next</div>
                                             {isLoading ? <div className="loader" /> : <img
                                                 loading="lazy"
-                                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/fe5a8b765fc3524d04107757497d09638757efa8cee0173e84ceec301f147d3e?"
+                                                src="./assets/fe5a8b765fc3524d04107757497d09638757efa8cee0173e84ceec301f147d3e.svg"
                                                 className="shrink-0 my-auto w-4 aspect-square"
                                                 alt="right arrow"
                                             />}
@@ -226,18 +226,18 @@ const Conversation = () => {
                         <div className="flex flex-1 gap-1 justify-center p-3 rounded-lg bg-zinc-800">
                             <img
                                 loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/70ffa0b0d35d294f9e8f41fcfda2becb7add0cf327b743f773077d8b4b884873?"
+                                src="./assets/70ffa0b0d35d294f9e8f41fcfda2becb7add0cf327b743f773077d8b4b884873.svg"
                                 className="shrink-0 w-4 aspect-square"
                                 alt="chat with moderator"
                             />
                             <div>Message me on X</div>
                         </div>
                     </a>
-                    <a className="flex flex-1 gap-1 justify-center p-3 rounded-lg bg-zinc-800" href="https://twitter.com/_ok_adrian">
+                    <a className="flex flex-1 gap-1 justify-center p-3 rounded-lg bg-zinc-800" href="https://discord.gg/93G9EWU45F">
                         <div className="flex flex-1 gap-1 justify-center p-3 rounded-lg bg-zinc-800">
                             <img
                                 loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/692dda66028706408c6aade3951416c62696c36d5f921b04d2d505d269939487?"
+                                src={'./assets/692dda66028706408c6aade3951416c62696c36d5f921b04d2d505d269939487.svg'}
                                 className="shrink-0 w-4 aspect-square"
                                 alt="chat with group"
                             />
