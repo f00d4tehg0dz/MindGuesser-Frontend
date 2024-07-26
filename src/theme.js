@@ -6,13 +6,13 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#0d47a1',
+      main: '#F0F0F0',
     },
     secondary: {
-      main: '#c3c3c3',
+      main: '#5957FF',
     },
     background: {
-      default: '#08233f',
+      default: '#141414',
     },
     error: {
       main: purple.A400,

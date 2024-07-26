@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,4 +14,82 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.start-button {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  background: #5957FF;
+  font-weight: normal;
+  box-shadow: 0 0px 25px #efc0248f;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.start-button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0px 25px #efc024e8;
+}
+
+
+canvas {
+  display: flex;
+  width: 400px;
+  height: 220px;
+  z-index: 1;
+  align-content: space-between;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  background: #404040;
+  border-radius: 9.50px
+}
+
+.progress::-ms-fill {
+  background: #5957FF;
+  border-radius: 9.50px
+}
+
+.dot-typing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot-typing span {
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  animation: dotTyping 1s infinite;
+}
+
+.dot-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotTyping {
+
+  0%,
+  20% {
+    background-color: white;
+  }
+
+  50%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
